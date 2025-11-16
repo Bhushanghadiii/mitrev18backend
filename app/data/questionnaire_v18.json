@@ -1,0 +1,217 @@
+{
+  "version": "18.0",
+  "sections": [
+    {
+      "section_id": "endpoint_monitoring",
+      "section_name": "Endpoint Security Monitoring",
+      "description": "Questions about your organization's capabilities related to monitoring and detection on end-user endpoints and servers.",
+      "questions": [
+        {
+          "question_id": "EP_001",
+          "question_text": "Do you collect and monitor process creation events?",
+          "capability_type": "process_monitoring",
+          "data_components_mapped": ["DC0009"],
+          "help_text": "Includes logging when applications, scripts, or commands are executed on endpoints.",
+          "detection_impact": "Critical for detecting malicious code execution and living-off-the-land techniques."
+        },
+        {
+          "question_id": "EP_002",
+          "question_text": "Do you capture command-line arguments for executed processes?",
+          "capability_type": "command_line_monitoring",
+          "data_components_mapped": ["DC0017"],
+          "help_text": "Provides full command visibility, used for detecting obfuscated or suspicious commands.",
+          "detection_impact": "Essential for detecting script-based attacks and PowerShell misuse."
+        },
+        {
+          "question_id": "EP_003",
+          "question_text": "Do you monitor Windows Registry modifications?",
+          "capability_type": "registry_monitoring",
+          "data_components_mapped": ["DC0010"],
+          "help_text": "Detects persistence mechanisms and configuration changes.",
+          "detection_impact": "Key for catching privilege escalations and defense evasion."
+        },
+        {
+          "question_id": "EP_004",
+          "question_text": "Do you track file creation, modification, and deletion events?",
+          "capability_type": "file_monitoring",
+          "data_components_mapped": ["DC0022"],
+          "help_text": "Allows detection of ransomware activity, data staging, or exfiltration.",
+          "detection_impact": "Critical for malware deployment and suspicious file manipulations."
+        },
+        {
+          "question_id": "EP_005",
+          "question_text": "Do you monitor scheduled task/job creation and modification?",
+          "capability_type": "scheduled_task_monitoring",
+          "data_components_mapped": ["DC0011"],
+          "help_text": "Detects persistence via scheduled jobs/tasks.",
+          "detection_impact": "Common persistence and privilege escalation detection."
+        },
+        {
+          "question_id": "EP_006",
+          "question_text": "Do you monitor Windows service installations and modifications?",
+          "capability_type": "service_monitoring",
+          "data_components_mapped": ["DC0012"],
+          "help_text": "Detects new or modified services.",
+          "detection_impact": "Critical for persistence and privilege escalation detection."
+        },
+        {
+          "question_id": "EP_007",
+          "question_text": "Do you monitor DLL loading activities?",
+          "capability_type": "dll_monitoring",
+          "data_components_mapped": ["DC0013"],
+          "help_text": "Detects DLL injection, hijacking, and side-loading attacks.",
+          "detection_impact": "Detects malicious code injection."
+        },
+        {
+          "question_id": "EP_008",
+          "question_text": "Do you monitor driver installations and loading?",
+          "capability_type": "driver_monitoring",
+          "data_components_mapped": ["DC0014"],
+          "help_text": "Detects kernel driver loading and modifications.",
+          "detection_impact": "Critical for detecting rootkits and advanced malware."
+        },
+        {
+          "question_id": "EP_009",
+          "question_text": "Do you monitor WMI (Windows Management Instrumentation) activity?",
+          "capability_type": "wmi_monitoring",
+          "data_components_mapped": ["DC0015"],
+          "help_text": "Detects living-off-the-land and lateral movement.",
+          "detection_impact": "Enables detection of fileless and stealthy behaviors."
+        },
+        {
+          "question_id": "EP_010",
+          "question_text": "Do you monitor PowerShell execution and script block logging?",
+          "capability_type": "powershell_monitoring",
+          "data_components_mapped": ["DC0017"],
+          "help_text": "Capture detailed PowerShell activity including script contents.",
+          "detection_impact": "Essential for modern attack detection—PowerShell is heavily used in attacks."
+        }
+      ]
+    },
+    {
+      "section_id": "network_monitoring",
+      "section_name": "Network Security Monitoring",
+      "description": "Questions about your network and cloud visibility and monitoring capabilities.",
+      "questions": [
+        {
+          "question_id": "NET_001",
+          "question_text": "Do you monitor DNS queries from your endpoints?",
+          "capability_type": "dns_monitoring",
+          "data_components_mapped": ["DC0024"],
+          "help_text": "Enables detection of command and control and domain generation algorithms.",
+          "detection_impact": "Essential for blocking malicious connections."
+        },
+        {
+          "question_id": "NET_002",
+          "question_text": "Do you log network connections (origin/destination IP, port, protocol)?",
+          "capability_type": "network_connection_monitoring",
+          "data_components_mapped": ["DC0019"],
+          "help_text": "Critical for lateral movement and exfiltration detection.",
+          "detection_impact": "Detect suspicious internal and external traffic."
+        },
+        {
+          "question_id": "NET_003",
+          "question_text": "Do you perform deep packet inspection or full packet capture?",
+          "capability_type": "network_traffic_content",
+          "data_components_mapped": ["DC0028"],
+          "help_text": "Inspect actual content of network traffic for advanced threat detection.",
+          "detection_impact": "Crucial for responding to data exfiltration and malware transmission."
+        },
+        {
+          "question_id": "NET_004",
+          "question_text": "Do you monitor web proxy logs and HTTP/HTTPS traffic?",
+          "capability_type": "web_proxy_monitoring",
+          "data_components_mapped": ["DC0025"],
+          "help_text": "View web browsing and HTTP request activity.",
+          "detection_impact": "Detects malicious downloads and web attack vectors."
+        }
+      ]
+    },
+    {
+      "section_id": "identity_access",
+      "section_name": "Identity & Access Monitoring",
+      "description": "Questions concerning authentication, authorization, and privileged account use.",
+      "questions": [
+        {
+          "question_id": "IAM_001",
+          "question_text": "Do you log all authentication attempts (success and failure)?",
+          "capability_type": "authentication_monitoring",
+          "data_components_mapped": ["DC0001"],
+          "help_text": "Monitor who logs on and failed attempts for every system.",
+          "detection_impact": "Detects brute force and credential stuffing."
+        },
+        {
+          "question_id": "IAM_002",
+          "question_text": "Do you monitor privileged account usage (admin, root, service accounts)?",
+          "capability_type": "privileged_account_monitoring",
+          "data_components_mapped": ["DC0002"],
+          "help_text": "Monitors sensitive account activity and escalation.",
+          "detection_impact": "Critical for privilege escalation and insider threat monitoring."
+        },
+        {
+          "question_id": "IAM_003",
+          "question_text": "Do you monitor user account creation, modification, and deletion?",
+          "capability_type": "account_lifecycle_monitoring",
+          "data_components_mapped": ["DC0003"],
+          "help_text": "Detects rogue accounts and abnormal modifications.",
+          "detection_impact": "Key for detecting persistence and policy violations."
+        },
+        {
+          "question_id": "IAM_004",
+          "question_text": "Do you monitor group membership changes for privileged groups?",
+          "capability_type": "group_membership_monitoring",
+          "data_components_mapped": ["DC0004"],
+          "help_text": "Detects when users are added to Admin or sensitive groups.",
+          "detection_impact": "Prevents privilege escalation and insider threat."
+        },
+        {
+          "question_id": "IAM_005",
+          "question_text": "Do you monitor Kerberos ticket requests and authentication?",
+          "capability_type": "kerberos_monitoring",
+          "data_components_mapped": ["DC0006"],
+          "help_text": "Critical for detecting 'Pass-the-Ticket', Golden Ticket, Kerberoasting.",
+          "detection_impact": "Key for detecting advanced Active Directory attacks."
+        }
+      ]
+    },
+    {
+      "section_id": "cloud_security",
+      "section_name": "Cloud Security Monitoring",
+      "description": "Questions about monitoring cloud and SaaS environments like AWS, Azure, GCP.",
+      "questions": [
+        {
+          "question_id": "CLOUD_001",
+          "question_text": "Do you collect and monitor cloud API logs (CloudTrail, Azure Activity, GCP Audit)?",
+          "capability_type": "cloud_api_monitoring",
+          "data_components_mapped": ["DC0031"],
+          "help_text": "See API calls made to cloud infrastructure.",
+          "detection_impact": "Critical for cloud posture, detecting malicious changes and privilege escalation."
+        },
+        {
+          "question_id": "CLOUD_002",
+          "question_text": "Do you monitor cloud storage access (S3, Blob Storage, Cloud Storage)?",
+          "capability_type": "cloud_storage_monitoring",
+          "data_components_mapped": ["DC0032"],
+          "help_text": "Track who accesses cloud buckets/objects.",
+          "detection_impact": "Detects data breaches and unauthorized data access."
+        },
+        {
+          "question_id": "CLOUD_003",
+          "question_text": "Do you monitor cloud compute instance creation and modification?",
+          "capability_type": "cloud_compute_monitoring",
+          "data_components_mapped": ["DC0033"],
+          "help_text": "Detect VM/container deployments.",
+          "detection_impact": "Detects unauthorized workloads and crypto mining."
+        }
+      ]
+    }
+  ],
+  "coverage_levels": {
+    "0": "No Monitoring - No capability or collection",
+    "1": "Minimal - Limited or fragile collection",
+    "2": "Basic - Majority of systems, some gaps",
+    "3": "Moderate - Good coverage for most systems",
+    "4": "Advanced - Comprehensive, real-time and alerting",
+    "5": "Full - Automated, complete, across all environments"
+  }
+}
